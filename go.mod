@@ -1,4 +1,4 @@
-module gitlab.com/eshaker/golang/fyne/tabler_icons
+module github.com/timzifer/fyne-tabler-icons
 
 go 1.24.1
 
