@@ -1,8 +1,8 @@
 // Package fyne_tabler provides Tabler Icons (https://tabler.io/icons) for Fyne apps.
 //
-// Icons are monochrome and stained before use: without an explicit color the
-// current theme foreground color is applied. The generated Icon* constants
-// list all available names.
+// Icons are addressed by the generated Icon* variables (or Lookup for names
+// from configuration). They are monochrome and stained before use: without
+// an explicit color the current theme foreground color is applied.
 package fyne_tabler
 
 import (
@@ -13,9 +13,16 @@ import (
 	"github.com/timzifer/fyne_iconkit"
 )
 
-//go:generate go run github.com/timzifer/fyne_iconkit/cmd/iconconst -dir icons -prefix Icon -out icons_gen.go
+//go:generate go run github.com/timzifer/fyne_iconkit/cmd/iconconst -dir icons -type icon -prefix Icon -out icons_gen.go
 
-// StainableResource is the resource type returned by Icon and MustIcon.
+// icon identifies one embedded icon. It is unexported on purpose: values only
+// come from the generated Icon* variables or Lookup, so every icon exists.
+type icon struct{ name string }
+
+// String returns the icon name, e.g. "arrow-up". Lookup accepts it again.
+func (i icon) String() string { return i.name }
+
+// StainableResource is the resource type returned by Icon.
 type StainableResource = fyne_iconkit.StainableResource
 
 var (
@@ -25,36 +32,44 @@ var (
 	set = fyne_iconkit.NewStainableSet(icons, "icons")
 )
 
-// Icon returns the named icon as StainableResource, stained with stainColor
-// or the theme foreground color. Unknown names yield an error wrapping
-// fs.ErrNotExist.
-func Icon(name string, stainColor ...color.Color) (fyne.Resource, error) {
-	return set.Icon(name, stainColor...)
+// Lookup returns the icon with the given name (as listed on https://tabler.io/icons),
+// e.g. for names read from configuration.
+func Lookup(name string) (icon, bool) {
+	if !set.Has(name) {
+		return icon{}, false
+	}
+	return icon{name}, true
 }
 
-// MustIcon is like Icon but logs the error via fyne.LogError and returns
-// theme.ErrorIcon() for unknown names.
-func MustIcon(name string, stainColor ...color.Color) fyne.Resource {
-	return set.MustIcon(name, stainColor...)
+// All returns every icon of this package, sorted by name.
+func All() []icon {
+	names := set.Names()
+	all := make([]icon, len(names))
+	for n, name := range names {
+		all[n] = icon{name}
+	}
+	return all
 }
 
-// Source returns the unmodified SVG content of the named icon.
-func Source(name string) ([]byte, error) {
-	return set.Source(name)
+// Icon returns i as StainableResource, stained with stainColor or the theme
+// foreground color. Resources are cached per icon and color.
+func Icon(i icon, stainColor ...color.Color) fyne.Resource {
+	return set.MustIcon(i.name, stainColor...)
 }
 
-// StainedSource returns the SVG content of the named icon stained with c.
-func StainedSource(name string, c color.Color) ([]byte, error) {
-	return set.StainedSource(name, c)
+// Source returns the unmodified SVG content of i.
+func Source(i icon) []byte {
+	src, _ := set.Source(i.name)
+	return src
 }
 
-// PNG rasterizes the named icon to a size×size PNG, stained with stainColor
-// or black.
-func PNG(name string, size int, stainColor ...color.Color) ([]byte, error) {
-	return set.PNG(name, size, stainColor...)
+// StainedSource returns the SVG content of i stained with c.
+func StainedSource(i icon, c color.Color) []byte {
+	src, _ := set.StainedSource(i.name, c)
+	return src
 }
 
-// Names returns the names of all available icons.
-func Names() []string {
-	return set.Names()
+// PNG rasterizes i to a size×size PNG, stained with stainColor or black.
+func PNG(i icon, size int, stainColor ...color.Color) ([]byte, error) {
+	return set.PNG(i.name, size, stainColor...)
 }

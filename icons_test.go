@@ -14,23 +14,23 @@ import (
 // TestAllIconsRender makes sure every embedded icon can be stained and
 // rasterized and actually draws something.
 func TestAllIconsRender(t *testing.T) {
-	names := Names()
-	if len(names) < 500 {
-		t.Fatalf("only %d icons embedded", len(names))
+	all := All()
+	if len(all) < 500 {
+		t.Fatalf("only %d icons embedded", len(all))
 	}
-	for _, name := range names {
-		data, err := PNG(name, 24, color.White)
+	for _, i := range all {
+		data, err := PNG(i, 24, color.White)
 		if err != nil {
-			t.Errorf("PNG(%q): %v", name, err)
+			t.Errorf("PNG(%s): %v", i, err)
 			continue
 		}
 		img, err := png.Decode(bytes.NewReader(data))
 		if err != nil {
-			t.Errorf("PNG(%q) is not decodable: %v", name, err)
+			t.Errorf("PNG(%s) is not decodable: %v", i, err)
 			continue
 		}
 		if isBlank(img) {
-			t.Errorf("PNG(%q) is blank", name)
+			t.Errorf("PNG(%s) is blank", i)
 		}
 	}
 }
@@ -47,14 +47,25 @@ func isBlank(img image.Image) bool {
 	return true
 }
 
+func TestLookup(t *testing.T) {
+	if i, ok := Lookup("home"); !ok || i != IconHome {
+		t.Errorf("Lookup(home) = %v, %v", i, ok)
+	}
+	if i, ok := Lookup(IconHome.String()); !ok || i != IconHome {
+		t.Errorf("Lookup(String()) = %v, %v", i, ok)
+	}
+	for _, name := range []string{"", "does-not-exist", "../icons/home"} {
+		if _, ok := Lookup(name); ok {
+			t.Errorf("Lookup(%q) succeeded", name)
+		}
+	}
+}
+
 func TestIcon(t *testing.T) {
 	test.NewApp()
 	defer test.NewApp()
 
-	res, err := Icon(Names()[0], color.NRGBA{R: 0xff, A: 0xff})
-	if err != nil {
-		t.Fatal(err)
-	}
+	res := Icon(IconHome, color.NRGBA{R: 0xff, A: 0xff})
 	stainable, ok := res.(StainableResource)
 	if !ok {
 		t.Fatalf("Icon() returned %T, want StainableResource", res)
@@ -65,8 +76,15 @@ func TestIcon(t *testing.T) {
 	if blue := stainable.MustStain(color.NRGBA{B: 0xff, A: 0xff}); !bytes.Contains(blue.Content(), []byte("#0000ff")) {
 		t.Errorf("MustStain() did not restain: %s", blue.Content())
 	}
+	if !bytes.Contains(Source(IconHome), []byte("currentColor")) {
+		t.Error("Source() must return the unstained SVG")
+	}
 
-	if got := MustIcon("does-not-exist"); got != theme.ErrorIcon() {
-		t.Errorf("MustIcon(does-not-exist) = %v, want theme.ErrorIcon()", got)
+	var zero icon
+	if got := Icon(zero); got != theme.ErrorIcon() {
+		t.Errorf("Icon(zero value) = %v, want theme.ErrorIcon()", got)
+	}
+	if Source(zero) != nil {
+		t.Error("Source(zero value) must be nil")
 	}
 }
