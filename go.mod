@@ -1,51 +1,26 @@
-module github.com/timzifer/fyne-tabler-icons
+module github.com/timzifer/fyne_tabler
 
-go 1.24.1
-
-toolchain go1.24.2
+go 1.21
 
 require (
-	fyne.io/fyne/v2 v2.5.5
-	github.com/muesli/gamut v0.3.1
-	github.com/rs/zerolog v1.29.1
-	github.com/tdewolff/canvas v0.0.0-20250402074417-bec7343c79af
+	fyne.io/fyne/v2 v2.3.5
+	github.com/timzifer/fyne_iconkit v0.0.0-20260914100906-af15eacc8d70
 )
 
 require (
-	codeberg.org/go-latex/latex v0.1.0 // indirect
-	github.com/BurntSushi/freetype-go v0.0.0-20160129220410-b763ddbfe298 // indirect
-	github.com/BurntSushi/graphics-go v0.0.0-20160129215708-b43f31a4a966 // indirect
-	github.com/BurntSushi/xgb v0.0.0-20210121224620-deaf085860bc // indirect
-	github.com/BurntSushi/xgbutil v0.0.0-20190907113008-ad855c713046 // indirect
-	github.com/ByteArena/poly2tri-go v0.0.0-20170716161910-d102ad91854f // indirect
-	github.com/Kagami/go-avif v0.1.0 // indirect
-	github.com/andybalholm/brotli v1.1.1 // indirect
-	github.com/benoitkugler/textlayout v0.3.1 // indirect
-	github.com/benoitkugler/textprocessing v0.0.3 // indirect
-	github.com/fredbi/uri v1.1.0 // indirect
-	github.com/fyne-io/gl-js v0.1.0 // indirect
-	github.com/go-fonts/latin-modern v0.3.3 // indirect
-	github.com/go-gl/gl v0.0.0-20231021071112-07e5d0ea2e71 // indirect
-	github.com/go-text/typesetting v0.3.0 // indirect
-	github.com/golang/freetype v0.0.0-20170609003504-e2365dfdc4a0 // indirect
-	github.com/kolesa-team/go-webp v1.0.4 // indirect
-	github.com/lucasb-eyer/go-colorful v1.2.0 // indirect
-	github.com/mattn/go-colorable v0.1.12 // indirect
-	github.com/mattn/go-isatty v0.0.14 // indirect
-	github.com/muesli/clusters v0.0.0-20200529215643-2700303c1762 // indirect
-	github.com/muesli/kmeans v0.3.1 // indirect
-	github.com/srwiley/oksvg v0.0.0-20221011165216-be6e8873101c // indirect
-	github.com/srwiley/rasterx v0.0.0-20220730225603-2ab79fcdd4ef // indirect
-	github.com/srwiley/scanx v0.0.0-20190309010443-e94503791388 // indirect
-	github.com/tdewolff/font v0.0.0-20250314092958-e0eef3f68b08 // indirect
-	github.com/tdewolff/minify/v2 v2.22.1 // indirect
-	github.com/tdewolff/parse/v2 v2.7.21 // indirect
-	github.com/wcharczuk/go-chart/v2 v2.1.2 // indirect
-	github.com/xrash/smetrics v0.0.0-20201216005158-039620a65673 // indirect
-	golang.org/x/image v0.25.0 // indirect
-	golang.org/x/net v0.37.0 // indirect
-	golang.org/x/sys v0.31.0 // indirect
-	golang.org/x/text v0.23.0 // indirect
-	gonum.org/v1/plot v0.15.2 // indirect
-	star-tex.org/x/tex v0.5.0 // indirect
+	github.com/davecgh/go-spew v1.1.1 // indirect
+	github.com/fredbi/uri v0.1.0 // indirect
+	github.com/fyne-io/gl-js v0.0.0-20220119005834-d2da28d9ccfe // indirect
+	github.com/go-gl/gl v0.0.0-20211210172815-726fda9656d6 // indirect
+	github.com/go-text/typesetting v0.0.0-20230405155246-bf9c697c6e16 // indirect
+	github.com/goki/freetype v0.0.0-20220119013949-7a161fd3728c // indirect
+	github.com/gopherjs/gopherjs v1.17.2 // indirect
+	github.com/pmezard/go-difflib v1.0.0 // indirect
+	github.com/srwiley/oksvg v0.0.0-20220731023508-a61f04f16b76 // indirect
+	github.com/srwiley/rasterx v0.0.0-20210519020934-456a8d69b780 // indirect
+	github.com/stretchr/testify v1.8.0 // indirect
+	golang.org/x/image v0.3.0 // indirect
+	golang.org/x/net v0.0.0-20220722155237-a158d28d115b // indirect
+	golang.org/x/text v0.6.0 // indirect
+	gopkg.in/yaml.v3 v3.0.1 // indirect
 )
