@@ -34,16 +34,18 @@ import (
 )
 
 type options struct {
-	version   string
-	dir       string
-	license   string
-	readme    string
-	stateFile string
-	aliases   string
-	changelog string
-	notes     string
-	pkg       string
-	offline   bool
+	version      string
+	dir          string
+	license      string
+	readme       string
+	stateFile    string
+	aliases      string
+	changelog    string
+	notes        string
+	pkg          string
+	offline      bool
+	release      string
+	changelogURL string
 }
 
 func main() {
@@ -58,6 +60,8 @@ func main() {
 	flag.StringVar(&o.notes, "notes", "", "also write the release notes of an imported release to this file, shortened to fit a pull request body")
 	flag.StringVar(&o.pkg, "pkg", "", "package name of the generated file (default $GOPACKAGE or fyne_tabler)")
 	flag.BoolVar(&o.offline, "offline", false, "only regenerate the -out file from the state file and the icons directory")
+	flag.StringVar(&o.changelogURL, "changelog-url", "CHANGELOG.md", `link to the changelog in shortened notes; "{version}" is replaced by the Tabler release`)
+	flag.StringVar(&o.release, "release-notes", "", "only write the changelog section of the current release to this file, shortened to fit a GitHub release")
 	flag.Parse()
 	if o.pkg == "" {
 		o.pkg = os.Getenv("GOPACKAGE")
@@ -78,6 +82,9 @@ func run(ctx context.Context, o options) error {
 	st, err := loadState(o.stateFile, o.readme)
 	if err != nil {
 		return err
+	}
+	if o.release != "" {
+		return writeReleaseNotes(o, st)
 	}
 	old, err := readIcons(o.dir)
 	if err != nil {
@@ -150,21 +157,30 @@ func run(ctx context.Context, o options) error {
 
 	n := notes{From: from, To: st.Version, Total: len(pkg.icons), Diff: d, Aliased: aliased,
 		Retargeted: retargeted, Dropped: dropped}
+	md := n.markdown()
 	if o.changelog != "" {
-		if err := prependChangelog(o.changelog, n.markdown(true)); err != nil {
+		if err := prependChangelog(o.changelog, md); err != nil {
 			return err
 		}
 	}
 	if o.notes != "" {
-		md := n.markdown(true)
-		if len(md) > maxNotes {
-			md = n.markdown(false)
-		}
-		if err := os.WriteFile(o.notes, []byte(md), 0o644); err != nil {
+		if err := os.WriteFile(o.notes, []byte(shorten(md, strings.ReplaceAll(o.changelogURL, "{version}", st.Version))), 0o644); err != nil {
 			return err
 		}
 	}
 	return nil
+}
+
+func writeReleaseNotes(o options, st *state) error {
+	changelog, err := os.ReadFile(o.changelog)
+	if err != nil {
+		return err
+	}
+	section, err := changelogSection(lf(changelog), st.Version)
+	if err != nil {
+		return fmt.Errorf("%s: %w", o.changelog, err)
+	}
+	return os.WriteFile(o.release, []byte(shorten(section, strings.ReplaceAll(o.changelogURL, "{version}", st.Version))), 0o644)
 }
 
 func writeAliases(o options, st *state, icons map[string][]byte) error {

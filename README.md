@@ -67,7 +67,9 @@ icons per release.
 
 Releases are tagged `v1.<minor>.<patch>`; the embedded Tabler Icons release
 is named in the release title, in [CHANGELOG.md](CHANGELOG.md) and in
-`fyne_tabler.TablerVersion`.
+`fyne_tabler.TablerVersion`. Every Tabler update merged into `main` is
+released automatically as the next minor version, with its changelog section
+as release notes ([release workflow](.github/workflows/release.yml)).
 
 > [!IMPORTANT]
 > Unlike strict semantic versioning, **minor releases may remove `Icon*`

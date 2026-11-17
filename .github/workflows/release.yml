@@ -1,0 +1,78 @@
+name: Release
+
+# Every new Tabler Icons release on main (merged update pull request) becomes
+# a minor release v1.<minor+1>.0 with the changelog section as description.
+on:
+  push:
+    branches: [main]
+    paths: [tabler.json]
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: release
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v5
+        with:
+          fetch-depth: 0 # tags and their tabler.json
+      - uses: actions/setup-go@v6
+        with:
+          go-version: stable
+
+      - name: Determine version
+        id: version
+        run: |
+          tabler=$(jq -r .version tabler.json)
+          last=$(git tag -l 'v*' --sort=-v:refname | grep -E '^v[0-9]+\.[0-9]+\.[0-9]+$' | head -n 1 || true)
+          released=$(git show "$last:tabler.json" 2>/dev/null | jq -r .version || true)
+          if [ "$tabler" = "$released" ]; then
+            echo "Tabler Icons $tabler is already released as $last."
+            echo "release=false" >> "$GITHUB_OUTPUT"
+            exit 0
+          fi
+          if [ -z "$last" ]; then
+            next=v1.0.0
+          else
+            IFS=. read -r major minor _ <<< "${last#v}"
+            next="v$major.$((minor + 1)).0"
+          fi
+          echo "Releasing $next with Tabler Icons $tabler (last release: ${last:-none})."
+          {
+            echo "release=true"
+            echo "tag=$next"
+            echo "tabler=$tabler"
+          } >> "$GITHUB_OUTPUT"
+
+      - name: Test
+        if: steps.version.outputs.release == 'true'
+        run: |
+          go run ./internal/tablerupdate -offline
+          go generate -run iconconst ./...
+          git diff --exit-code
+          go vet ./...
+          go test ./...
+
+      - name: Create release
+        if: steps.version.outputs.release == 'true'
+        env:
+          GH_TOKEN: ${{ github.token }}
+          TAG: ${{ steps.version.outputs.tag }}
+          TABLER: ${{ steps.version.outputs.tabler }}
+        run: |
+          go run ./internal/tablerupdate -release-notes "$RUNNER_TEMP/notes.md" \
+            -changelog-url "https://github.com/$GITHUB_REPOSITORY/blob/$TAG/CHANGELOG.md"
+          gh release create "$TAG" --target "$GITHUB_SHA" \
+            --title "$TAG (Tabler Icons $TABLER)" \
+            --notes-file "$RUNNER_TEMP/notes.md"
+
+      - name: Announce to the Go module proxy
+        if: steps.version.outputs.release == 'true'
+        env:
+          TAG: ${{ steps.version.outputs.tag }}
+        run: curl -fsS "https://proxy.golang.org/github.com/${GITHUB_REPOSITORY}/@v/$TAG.info" || true

@@ -183,7 +183,7 @@ func TestNotes(t *testing.T) {
 		Aliased: []alias{{Name: "123", Target: "number-123", Source: sourceTabler}},
 		Dropped: []aliasChange{{alias{Name: "old", Target: "home"}, "deprecated since Tabler Icons 2.30.0"}},
 	}
-	md := n.markdown(true)
+	md := n.markdown()
 	for _, want := range []string{
 		"## Tabler Icons 3.52.0",
 		"Breaking: 2 `Icon*` variables",
@@ -199,6 +199,33 @@ func TestNotes(t *testing.T) {
 		if !strings.Contains(md, want) {
 			t.Errorf("notes lack %q:\n%s", want, md)
 		}
+	}
+	if shorten(md, "CHANGELOG.md") != md {
+		t.Error("short notes were shortened")
+	}
+}
+
+func TestShorten(t *testing.T) {
+	long := "## X\n\n### Added (1)\n\n<details>\n<summary>Show icons</summary>\n\n" + strings.Repeat("- `a`\n", maxNotes) + "\n</details>\n\n### Changed shape (1)\n"
+	got := shorten(long, "CHANGELOG.md")
+	if len(got) > maxNotes || strings.Contains(got, "<details>") ||
+		!strings.Contains(got, "### Added (1)\n\nThe list is in [CHANGELOG.md](CHANGELOG.md).\n") || !strings.Contains(got, "### Changed shape (1)") {
+		t.Errorf("shorten = %q", got)
+	}
+}
+
+func TestChangelogSection(t *testing.T) {
+	changelog := "# Changelog\n\n## Tabler Icons 3.53.0\n\nnew\n\n## Tabler Icons 3.52.0\n\nold\n"
+	for version, want := range map[string]string{
+		"3.53.0": "## Tabler Icons 3.53.0\n\nnew\n",
+		"3.52.0": "## Tabler Icons 3.52.0\n\nold\n",
+	} {
+		if got, err := changelogSection(changelog, version); err != nil || got != want {
+			t.Errorf("changelogSection(%s) = %q, %v", version, got, err)
+		}
+	}
+	if _, err := changelogSection(changelog, "3.5.0"); err == nil {
+		t.Error("missing section accepted")
 	}
 }
 

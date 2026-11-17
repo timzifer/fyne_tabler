@@ -32,7 +32,8 @@ jobs:
         env:
           VERSION: ${{ inputs.version || 'latest' }}
         run: |
-          go run ./internal/tablerupdate -version "$VERSION" -notes "$RUNNER_TEMP/notes.md"
+          go run ./internal/tablerupdate -version "$VERSION" -notes "$RUNNER_TEMP/notes.md" \
+            -changelog-url "https://github.com/$GITHUB_REPOSITORY/blob/update/tabler-icons-{version}/CHANGELOG.md"
           go generate -run iconconst ./...
 
       - name: Detect changes

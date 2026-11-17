@@ -100,12 +100,37 @@ type notes struct {
 	Dropped    []aliasChange
 }
 
-// maxNotes keeps release notes below GitHub's limit for pull request bodies.
+// maxNotes keeps release notes below GitHub's limits for pull request bodies
+// (65536 characters) and release descriptions (125000 characters).
 const maxNotes = 60000
 
-// markdown renders the notes. Without lists, added and changed icons are
-// only counted.
-func (n *notes) markdown(lists bool) string {
+var detailsBlock = regexp.MustCompile(`(?s)<details>.*?</details>\n`)
+
+// shorten replaces the collapsible icon lists of release notes by a pointer
+// to the changelog if the notes are too long for GitHub.
+func shorten(md, changelogURL string) string {
+	if len(md) <= maxNotes {
+		return md
+	}
+	return detailsBlock.ReplaceAllLiteralString(md, "The list is in [CHANGELOG.md]("+changelogURL+").\n")
+}
+
+// changelogSection returns the section of the given Tabler release.
+func changelogSection(changelog, version string) (string, error) {
+	head := "## Tabler Icons " + version + "\n"
+	i := strings.Index(changelog, head)
+	if i < 0 {
+		return "", fmt.Errorf("no section %q in changelog", strings.TrimSpace(head))
+	}
+	section := changelog[i:]
+	if j := strings.Index(section[len(head):], "\n## "); j >= 0 {
+		section = section[:len(head)+j+1]
+	}
+	return strings.TrimRight(section, "\n") + "\n", nil
+}
+
+// markdown renders the notes as a changelog section.
+func (n *notes) markdown() string {
 	var b strings.Builder
 	fmt.Fprintf(&b, "## Tabler Icons %s\n\n", n.To)
 	fmt.Fprintf(&b, "Updated from [%s to %s](https://github.com/tabler/tabler-icons/compare/v%s...v%s), %d icons in total.\n\n",
@@ -169,8 +194,8 @@ func (n *notes) markdown(lists bool) string {
 		}
 		b.WriteString("\n")
 	}
-	writeList(&b, "Added", added, lists)
-	writeList(&b, "Changed shape", n.Diff.Changed, lists)
+	writeList(&b, "Added", added)
+	writeList(&b, "Changed shape", n.Diff.Changed)
 	return b.String()
 }
 
@@ -188,12 +213,8 @@ func sourceText(source string) string {
 	return source
 }
 
-func writeList(b *strings.Builder, title string, names []string, list bool) {
+func writeList(b *strings.Builder, title string, names []string) {
 	if len(names) == 0 {
-		return
-	}
-	if !list {
-		fmt.Fprintf(b, "### %s (%d)\n\nSee CHANGELOG.md for the list.\n\n", title, len(names))
 		return
 	}
 	fmt.Fprintf(b, "### %s (%d)\n\n<details>\n<summary>Show icons</summary>\n\n", title, len(names))
@@ -211,7 +232,7 @@ func prependChangelog(file, entry string) error {
 	if err != nil && !os.IsNotExist(err) {
 		return err
 	}
-	rest := strings.TrimPrefix(string(src), changelogHeader)
+	rest := strings.TrimPrefix(lf(src), changelogHeader)
 	out := changelogHeader + strings.TrimRight(entry, "\n") + "\n"
 	if rest = strings.TrimSpace(rest); rest != "" {
 		out += "\n" + rest + "\n"
@@ -255,4 +276,10 @@ func sortedKeys[V any](m map[string]V) []string {
 	}
 	slices.Sort(keys)
 	return keys
+}
+
+// lf returns src with Windows line endings converted, as git may check out
+// text files with CRLF.
+func lf(src []byte) string {
+	return strings.ReplaceAll(string(src), "\r\n", "\n")
 }
