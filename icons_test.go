@@ -54,6 +54,15 @@ func TestLookup(t *testing.T) {
 	if i, ok := Lookup(IconHome.String()); !ok || i != IconHome {
 		t.Errorf("Lookup(String()) = %v, %v", i, ok)
 	}
+	// Deprecated names of renamed icons resolve to the new icon.
+	for old, cur := range aliases {
+		if i, ok := Lookup(old); !ok || i.String() != cur {
+			t.Errorf("Lookup(%q) = %v, %v, want %q", old, i, ok, cur)
+		}
+		if _, ok := Lookup(cur); !ok {
+			t.Errorf("alias %q points to missing icon %q", old, cur)
+		}
+	}
 	for _, name := range []string{"", "does-not-exist", "../icons/home"} {
 		if _, ok := Lookup(name); ok {
 			t.Errorf("Lookup(%q) succeeded", name)
