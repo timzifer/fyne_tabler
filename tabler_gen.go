@@ -5,7 +5,7 @@ package fyne_tabler
 // TablerVersion is the release of Tabler Icons embedded in this package.
 const TablerVersion = "3.52.0"
 
-// Deprecated aliases of 85 renamed icons. Like Tabler, each alias is kept
+// Deprecated aliases of 85 renamed icons. Like upstream, each alias is kept
 // until the next major release of Tabler Icons.
 var (
 	// Icon123 is the former name of IconNumber123.

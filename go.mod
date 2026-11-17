@@ -4,7 +4,7 @@ go 1.21
 
 require (
 	fyne.io/fyne/v2 v2.3.5
-	github.com/timzifer/fyne_iconkit v0.1.0
+	github.com/timzifer/fyne_iconkit v0.2.0
 )
 
 require (

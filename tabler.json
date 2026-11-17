@@ -14,55 +14,55 @@
       "name": "123",
       "target": "number-123",
       "since": "3.52.0",
-      "source": "tabler"
+      "source": "upstream"
     },
     {
       "name": "24-hours",
       "target": "hours-24",
       "since": "3.52.0",
-      "source": "tabler"
+      "source": "upstream"
     },
     {
       "name": "2fa",
       "target": "auth-2fa",
       "since": "3.52.0",
-      "source": "tabler"
+      "source": "upstream"
     },
     {
       "name": "360",
       "target": "view-360-arrow",
       "since": "3.52.0",
-      "source": "tabler"
+      "source": "upstream"
     },
     {
       "name": "360-view",
       "target": "view-360-number",
       "since": "3.52.0",
-      "source": "tabler"
+      "source": "upstream"
     },
     {
       "name": "3d-cube-sphere",
       "target": "cube-3d-sphere",
       "since": "3.52.0",
-      "source": "tabler"
+      "source": "upstream"
     },
     {
       "name": "3d-cube-sphere-off",
       "target": "cube-3d-sphere-off",
       "since": "3.52.0",
-      "source": "tabler"
+      "source": "upstream"
     },
     {
       "name": "3d-rotate",
       "target": "rotate-3d",
       "since": "3.52.0",
-      "source": "tabler"
+      "source": "upstream"
     },
     {
       "name": "align-justified",
       "target": "align-left-justified",
       "since": "3.52.0",
-      "source": "tabler"
+      "source": "upstream"
     },
     {
       "name": "arrow-top-circle",
@@ -80,7 +80,7 @@
       "name": "box-seam",
       "target": "package",
       "since": "3.52.0",
-      "source": "tabler"
+      "source": "upstream"
     },
     {
       "name": "brand-microsoft-teams",
@@ -224,211 +224,211 @@
       "name": "circle-0-filled",
       "target": "circle-number-0-filled",
       "since": "3.52.0",
-      "source": "tabler"
+      "source": "upstream"
     },
     {
       "name": "circle-1-filled",
       "target": "circle-number-1-filled",
       "since": "3.52.0",
-      "source": "tabler"
+      "source": "upstream"
     },
     {
       "name": "circle-2-filled",
       "target": "circle-number-2-filled",
       "since": "3.52.0",
-      "source": "tabler"
+      "source": "upstream"
     },
     {
       "name": "circle-3-filled",
       "target": "circle-number-3-filled",
       "since": "3.52.0",
-      "source": "tabler"
+      "source": "upstream"
     },
     {
       "name": "circle-4-filled",
       "target": "circle-number-4-filled",
       "since": "3.52.0",
-      "source": "tabler"
+      "source": "upstream"
     },
     {
       "name": "circle-5-filled",
       "target": "circle-number-5-filled",
       "since": "3.52.0",
-      "source": "tabler"
+      "source": "upstream"
     },
     {
       "name": "circle-6-filled",
       "target": "circle-number-6-filled",
       "since": "3.52.0",
-      "source": "tabler"
+      "source": "upstream"
     },
     {
       "name": "circle-7-filled",
       "target": "circle-number-7-filled",
       "since": "3.52.0",
-      "source": "tabler"
+      "source": "upstream"
     },
     {
       "name": "circle-8-filled",
       "target": "circle-number-8-filled",
       "since": "3.52.0",
-      "source": "tabler"
+      "source": "upstream"
     },
     {
       "name": "circle-9-filled",
       "target": "circle-number-9-filled",
       "since": "3.52.0",
-      "source": "tabler"
+      "source": "upstream"
     },
     {
       "name": "code-asterix",
       "target": "code-asterisk",
       "since": "3.52.0",
-      "source": "tabler"
+      "source": "upstream"
     },
     {
       "name": "currency-rubel",
       "target": "currency-ruble",
       "since": "3.52.0",
-      "source": "tabler"
+      "source": "upstream"
     },
     {
       "name": "discount-2",
       "target": "rosette-discount",
       "since": "3.52.0",
-      "source": "tabler"
+      "source": "upstream"
     },
     {
       "name": "discount-2-off",
       "target": "rosette-discount-off",
       "since": "3.52.0",
-      "source": "tabler"
+      "source": "upstream"
     },
     {
       "name": "discount-check",
       "target": "rosette-discount-check",
       "since": "3.52.0",
-      "source": "tabler"
+      "source": "upstream"
     },
     {
       "name": "discount-check-filled",
       "target": "rosette-discount-check-filled",
       "since": "3.52.0",
-      "source": "tabler"
+      "source": "upstream"
     },
     {
       "name": "gender-trasvesti",
       "target": "gender-travesti",
       "since": "3.52.0",
-      "source": "tabler"
+      "source": "upstream"
     },
     {
       "name": "hand-rock",
       "target": "hand-love-you",
       "since": "3.52.0",
-      "source": "tabler"
+      "source": "upstream"
     },
     {
       "name": "hexagon-0-filled",
       "target": "hexagon-number-0-filled",
       "since": "3.52.0",
-      "source": "tabler"
+      "source": "upstream"
     },
     {
       "name": "hexagon-1-filled",
       "target": "hexagon-number-1-filled",
       "since": "3.52.0",
-      "source": "tabler"
+      "source": "upstream"
     },
     {
       "name": "hexagon-2-filled",
       "target": "hexagon-number-2-filled",
       "since": "3.52.0",
-      "source": "tabler"
+      "source": "upstream"
     },
     {
       "name": "hexagon-3-filled",
       "target": "hexagon-number-3-filled",
       "since": "3.52.0",
-      "source": "tabler"
+      "source": "upstream"
     },
     {
       "name": "hexagon-4-filled",
       "target": "hexagon-number-4-filled",
       "since": "3.52.0",
-      "source": "tabler"
+      "source": "upstream"
     },
     {
       "name": "hexagon-5-filled",
       "target": "hexagon-number-5-filled",
       "since": "3.52.0",
-      "source": "tabler"
+      "source": "upstream"
     },
     {
       "name": "hexagon-6-filled",
       "target": "hexagon-number-6-filled",
       "since": "3.52.0",
-      "source": "tabler"
+      "source": "upstream"
     },
     {
       "name": "hexagon-7-filled",
       "target": "hexagon-number-7-filled",
       "since": "3.52.0",
-      "source": "tabler"
+      "source": "upstream"
     },
     {
       "name": "hexagon-8-filled",
       "target": "hexagon-number-8-filled",
       "since": "3.52.0",
-      "source": "tabler"
+      "source": "upstream"
     },
     {
       "name": "hexagon-9-filled",
       "target": "hexagon-number-9-filled",
       "since": "3.52.0",
-      "source": "tabler"
+      "source": "upstream"
     },
     {
       "name": "kering",
       "target": "kerning",
       "since": "3.52.0",
-      "source": "tabler"
+      "source": "upstream"
     },
     {
       "name": "message-circle-2",
       "target": "message-circle",
       "since": "3.52.0",
-      "source": "tabler"
+      "source": "upstream"
     },
     {
       "name": "message-circle-2-filled",
       "target": "message-circle-filled",
       "since": "3.52.0",
-      "source": "tabler"
+      "source": "upstream"
     },
     {
       "name": "mood-confuzed",
       "target": "mood-confused",
       "since": "3.52.0",
-      "source": "tabler"
+      "source": "upstream"
     },
     {
       "name": "mood-confuzed-filled",
       "target": "mood-confused-filled",
       "since": "3.52.0",
-      "source": "tabler"
+      "source": "upstream"
     },
     {
       "name": "mood-suprised",
       "target": "mood-surprised",
       "since": "3.52.0",
-      "source": "tabler"
+      "source": "upstream"
     },
     {
       "name": "physotherapist",
       "target": "physiotherapist",
       "since": "3.52.0",
-      "source": "tabler"
+      "source": "upstream"
     },
     {
       "name": "question-circle",
@@ -440,85 +440,85 @@
       "name": "seeding",
       "target": "seedling",
       "since": "3.52.0",
-      "source": "tabler"
+      "source": "upstream"
     },
     {
       "name": "seeding-off",
       "target": "seedling-off",
       "since": "3.52.0",
-      "source": "tabler"
+      "source": "upstream"
     },
     {
       "name": "shi-jumping",
       "target": "ski-jumping",
       "since": "3.52.0",
-      "source": "tabler"
+      "source": "upstream"
     },
     {
       "name": "sport-billard",
       "target": "sport-billiard",
       "since": "3.52.0",
-      "source": "tabler"
+      "source": "upstream"
     },
     {
       "name": "square-0-filled",
       "target": "square-number-0-filled",
       "since": "3.52.0",
-      "source": "tabler"
+      "source": "upstream"
     },
     {
       "name": "square-1-filled",
       "target": "square-number-1-filled",
       "since": "3.52.0",
-      "source": "tabler"
+      "source": "upstream"
     },
     {
       "name": "square-2-filled",
       "target": "square-number-2-filled",
       "since": "3.52.0",
-      "source": "tabler"
+      "source": "upstream"
     },
     {
       "name": "square-3-filled",
       "target": "square-number-3-filled",
       "since": "3.52.0",
-      "source": "tabler"
+      "source": "upstream"
     },
     {
       "name": "square-4-filled",
       "target": "square-number-4-filled",
       "since": "3.52.0",
-      "source": "tabler"
+      "source": "upstream"
     },
     {
       "name": "square-5-filled",
       "target": "square-number-5-filled",
       "since": "3.52.0",
-      "source": "tabler"
+      "source": "upstream"
     },
     {
       "name": "square-6-filled",
       "target": "square-number-6-filled",
       "since": "3.52.0",
-      "source": "tabler"
+      "source": "upstream"
     },
     {
       "name": "square-7-filled",
       "target": "square-number-7-filled",
       "since": "3.52.0",
-      "source": "tabler"
+      "source": "upstream"
     },
     {
       "name": "square-8-filled",
       "target": "square-number-8-filled",
       "since": "3.52.0",
-      "source": "tabler"
+      "source": "upstream"
     },
     {
       "name": "square-9-filled",
       "target": "square-number-9-filled",
       "since": "3.52.0",
-      "source": "tabler"
+      "source": "upstream"
     }
   ]
 }
