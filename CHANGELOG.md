@@ -2111,7 +2111,7 @@ No successor was found. If there is one, add it to `aliases` in `tabler.json` (s
 
 </details>
 
-### Changed shape (132)
+### Changed shape (139)
 
 <details>
 <summary>Show icons</summary>
@@ -2179,12 +2179,15 @@ No successor was found. If there is one, add it to `aliases` in `tabler.json` (s
 - `browser-plus` (`IconBrowserPlus`)
 - `candle` (`IconCandle`)
 - `ce-off` (`IconCeOff`)
+- `chart-bar` (`IconChartBar`)
 - `chart-sankey` (`IconChartSankey`)
 - `contrast-2` (`IconContrast2`)
 - `copy` (`IconCopy`)
 - `currency-dong` (`IconCurrencyDong`)
 - `details` (`IconDetails`)
 - `device-ipad` (`IconDeviceIpad`)
+- `error-404` (`IconError404`)
+- `error-404-off` (`IconError404Off`)
 - `exposure` (`IconExposure`)
 - `exposure-off` (`IconExposureOff`)
 - `flame` (`IconFlame`)
@@ -2204,6 +2207,7 @@ No successor was found. If there is one, add it to `aliases` in `tabler.json` (s
 - `info-triangle` (`IconInfoTriangle`)
 - `info-triangle-filled` (`IconInfoTriangleFilled`)
 - `input-search` (`IconInputSearch`)
+- `language` (`IconLanguage`)
 - `login` (`IconLogin`)
 - `map-pin` (`IconMapPin`)
 - `math-max` (`IconMathMax`)
@@ -2224,7 +2228,9 @@ No successor was found. If there is one, add it to `aliases` in `tabler.json` (s
 - `pinned-off` (`IconPinnedOff`)
 - `planet-off` (`IconPlanetOff`)
 - `play-basketball` (`IconPlayBasketball`)
+- `play-football` (`IconPlayFootball`)
 - `play-handball` (`IconPlayHandball`)
+- `play-volleyball` (`IconPlayVolleyball`)
 - `robot` (`IconRobot`)
 - `robot-off` (`IconRobotOff`)
 - `route` (`IconRoute`)
@@ -2247,6 +2253,7 @@ No successor was found. If there is one, add it to `aliases` in `tabler.json` (s
 - `triangle-inverted` (`IconTriangleInverted`)
 - `triangle-inverted-filled` (`IconTriangleInvertedFilled`)
 - `triangle-off` (`IconTriangleOff`)
+- `waterpolo` (`IconWaterpolo`)
 - `zoom-pan` (`IconZoomPan`)
 
 </details>
