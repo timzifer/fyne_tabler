@@ -49,8 +49,60 @@ cannot fail. Since the type is unexported, store `fyne.Resource`s or names
 The default stain color is taken when the icon is requested; request the icon
 again (or call `MustStain`) after a theme change.
 
-Built on [fyne_iconkit](https://github.com/timzifer/fyne_iconkit). After
-updating the SVGs, run `go generate ./...` to refresh the `Icon*` variables.
+Filled icons are named `<name>-filled`. `fyne_tabler.TablerVersion` holds the
+embedded Tabler Icons release.
+
+Built on [fyne_iconkit](https://github.com/timzifer/fyne_iconkit).
+
+## Renamed icons
+
+When Tabler renames an icon, the old `Icon*` variable stays available as a
+deprecated alias of the new one (and `Lookup` accepts the old name). Like
+Tabler's own framework packages, aliases are kept until the next major
+release of Tabler Icons (aliases from Tabler 3.x are removed with Tabler 4).
+See [CHANGELOG.md](CHANGELOG.md) for renamed, removed, added and changed
+icons per release.
+
+## Versioning
+
+Releases are tagged `v1.<minor>.<patch>`; the embedded Tabler Icons release
+is named in the release title, in [CHANGELOG.md](CHANGELOG.md) and in
+`fyne_tabler.TablerVersion`.
+
+> [!IMPORTANT]
+> Unlike strict semantic versioning, **minor releases may remove `Icon*`
+> variables**: deprecated aliases once Tabler Icons has a new major release,
+> and icons that Tabler drops without a successor. Every removal is announced
+> in CHANGELOG.md, and deprecated aliases are marked `// Deprecated:`
+> (reported by `staticcheck` and gopls) for the whole Tabler major. Replace
+> deprecated identifiers when you see them, or pin the version in your
+> `go.mod` and read the changelog before upgrading.
+
+## Updating the icons
+
+A [daily workflow](.github/workflows/update-icons.yml) opens a pull request
+for every new Tabler Icons release, with the release notes as description.
+
+Locally, `go generate ./...` does the same: it downloads the latest release
+from npm (`@tabler/icons`), replaces the SVGs, license and the version above,
+updates the aliases and `CHANGELOG.md`, and regenerates the `Icon*` variables.
+
+```sh
+go generate ./...                                    # latest release
+go run ./internal/tablerupdate -version 3.52.0 && \
+  go generate -run iconconst ./...                   # specific release
+go run ./internal/tablerupdate -offline && \
+  go generate -run iconconst ./...                   # regenerate without downloading
+```
+
+Renames are taken from Tabler's `aliases.json`, from names (`cart-x` →
+`shopping-cart-x`) and from identical shapes. [`tabler.json`](tabler.json)
+records the imported releases and aliases; there you can
+
+- add an alias by hand (`"source": "manual"`, `"since"` = current version),
+  then run with `-offline`,
+- add a hint to `renames` (`"old": "new"`) that is used when a future release
+  removes `old`.
 
 ## License
 

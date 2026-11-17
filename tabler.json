@@ -1,0 +1,12 @@
+{
+  "version": "2.30.0",
+  "releases": [
+    "2.30.0"
+  ],
+  "renames": {
+    "arrow-top-circle": "arrow-up-circle",
+    "brand-microsoft-teams": "brand-teams",
+    "question-circle": "help-circle"
+  },
+  "aliases": []
+}

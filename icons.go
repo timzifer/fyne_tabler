@@ -13,6 +13,11 @@ import (
 	"github.com/timzifer/fyne_iconkit"
 )
 
+// The first directive replaces the SVGs with the latest Tabler Icons release
+// (network access required), the second regenerates the Icon* variables. Use
+// "go generate -run iconconst" to regenerate without downloading.
+//
+//go:generate go run ./internal/tablerupdate
 //go:generate go run github.com/timzifer/fyne_iconkit/cmd/iconconst -dir icons -type icon -prefix Icon -out icons_gen.go
 
 // icon identifies one embedded icon. It is unexported on purpose: values only
@@ -33,8 +38,12 @@ var (
 )
 
 // Lookup returns the icon with the given name (as listed on https://tabler.io/icons),
-// e.g. for names read from configuration.
+// e.g. for names read from configuration. Deprecated names of renamed icons
+// resolve to the renamed icon, whose String() returns the new name.
 func Lookup(name string) (icon, bool) {
+	if current, ok := aliases[name]; ok {
+		name = current
+	}
 	if !set.Has(name) {
 		return icon{}, false
 	}

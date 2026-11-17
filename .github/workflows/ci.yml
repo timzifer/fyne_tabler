@@ -23,6 +23,10 @@ jobs:
         run: test -z "$(gofmt -l .)" || (gofmt -l . && exit 1)
       - name: Generated code is up to date
         if: matrix.go == 'stable'
-        run: go generate ./... && git diff --exit-code
+        run: |
+          go run ./internal/tablerupdate -offline
+          go generate -run iconconst ./...
+          git add -A
+          git diff --cached --exit-code
       - run: go vet ./...
       - run: go test -race ./...
