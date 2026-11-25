@@ -2,7 +2,7 @@
 
 package fyne_tabler
 
-// All 6545 icons of this package.
+// All 6563 icons of this package.
 var (
 	IconAB                               = icon{"a-b"}
 	IconAB2                              = icon{"a-b-2"}
@@ -622,6 +622,7 @@ var (
 	IconBedFlat                          = icon{"bed-flat"}
 	IconBedFlatFilled                    = icon{"bed-flat-filled"}
 	IconBedOff                           = icon{"bed-off"}
+	IconBedPin                           = icon{"bed-pin"}
 	IconBeer                             = icon{"beer"}
 	IconBeerFilled                       = icon{"beer-filled"}
 	IconBeerOff                          = icon{"beer-off"}
@@ -665,6 +666,7 @@ var (
 	IconBike                             = icon{"bike"}
 	IconBikeFilled                       = icon{"bike-filled"}
 	IconBikeOff                          = icon{"bike-off"}
+	IconBikePin                          = icon{"bike-pin"}
 	IconBinary                           = icon{"binary"}
 	IconBinaryOff                        = icon{"binary-off"}
 	IconBinaryTree                       = icon{"binary-tree"}
@@ -1258,6 +1260,7 @@ var (
 	IconBriefcase2Filled                 = icon{"briefcase-2-filled"}
 	IconBriefcaseFilled                  = icon{"briefcase-filled"}
 	IconBriefcaseOff                     = icon{"briefcase-off"}
+	IconBriefcasePin                     = icon{"briefcase-pin"}
 	IconBrightness                       = icon{"brightness"}
 	IconBrightness2                      = icon{"brightness-2"}
 	IconBrightnessAuto                   = icon{"brightness-auto"}
@@ -1327,6 +1330,7 @@ var (
 	IconBuildingFortress                 = icon{"building-fortress"}
 	IconBuildingHeart                    = icon{"building-heart"}
 	IconBuildingHospital                 = icon{"building-hospital"}
+	IconBuildingHospitalPin              = icon{"building-hospital-pin"}
 	IconBuildingLighthouse               = icon{"building-lighthouse"}
 	IconBuildingMinus                    = icon{"building-minus"}
 	IconBuildingMonument                 = icon{"building-monument"}
@@ -1343,6 +1347,7 @@ var (
 	IconBuildingStadium                  = icon{"building-stadium"}
 	IconBuildingStar                     = icon{"building-star"}
 	IconBuildingStore                    = icon{"building-store"}
+	IconBuildingStorePin                 = icon{"building-store-pin"}
 	IconBuildingTunnel                   = icon{"building-tunnel"}
 	IconBuildingUp                       = icon{"building-up"}
 	IconBuildingWarehouse                = icon{"building-warehouse"}
@@ -1357,6 +1362,7 @@ var (
 	IconBus                              = icon{"bus"}
 	IconBusFilled                        = icon{"bus-filled"}
 	IconBusOff                           = icon{"bus-off"}
+	IconBusPin                           = icon{"bus-pin"}
 	IconBusStop                          = icon{"bus-stop"}
 	IconBusinessplan                     = icon{"businessplan"}
 	IconButterfly                        = icon{"butterfly"}
@@ -1480,6 +1486,7 @@ var (
 	IconCarLifter                        = icon{"car-lifter"}
 	IconCarOff                           = icon{"car-off"}
 	IconCarOffRoad                       = icon{"car-off-road"}
+	IconCarPin                           = icon{"car-pin"}
 	IconCarSuspension                    = icon{"car-suspension"}
 	IconCarSuv                           = icon{"car-suv"}
 	IconCarSuvFilled                     = icon{"car-suv-filled"}
@@ -2084,6 +2091,7 @@ var (
 	IconCodeblock                        = icon{"codeblock"}
 	IconCoffee                           = icon{"coffee"}
 	IconCoffeeOff                        = icon{"coffee-off"}
+	IconCoffeePin                        = icon{"coffee-pin"}
 	IconCoffin                           = icon{"coffin"}
 	IconCoin                             = icon{"coin"}
 	IconCoinBitcoin                      = icon{"coin-bitcoin"}
@@ -3233,6 +3241,7 @@ var (
 	IconGasStation                       = icon{"gas-station"}
 	IconGasStationFilled                 = icon{"gas-station-filled"}
 	IconGasStationOff                    = icon{"gas-station-off"}
+	IconGasStationPin                    = icon{"gas-station-pin"}
 	IconGauge                            = icon{"gauge"}
 	IconGaugeFilled                      = icon{"gauge-filled"}
 	IconGaugeOff                         = icon{"gauge-off"}
@@ -3561,6 +3570,7 @@ var (
 	IconHomeMinus                        = icon{"home-minus"}
 	IconHomeMove                         = icon{"home-move"}
 	IconHomeOff                          = icon{"home-off"}
+	IconHomePin                          = icon{"home-pin"}
 	IconHomePlus                         = icon{"home-plus"}
 	IconHomeQuestion                     = icon{"home-question"}
 	IconHomeRibbon                       = icon{"home-ribbon"}
@@ -4686,6 +4696,7 @@ var (
 	IconPackageExport                    = icon{"package-export"}
 	IconPackageImport                    = icon{"package-import"}
 	IconPackageOff                       = icon{"package-off"}
+	IconPackagePin                       = icon{"package-pin"}
 	IconPackages                         = icon{"packages"}
 	IconPacman                           = icon{"pacman"}
 	IconPacmanFilled                     = icon{"pacman-filled"}
@@ -4714,6 +4725,7 @@ var (
 	IconParkingCircleFilled              = icon{"parking-circle-filled"}
 	IconParkingMeter                     = icon{"parking-meter"}
 	IconParkingOff                       = icon{"parking-off"}
+	IconParkingPin                       = icon{"parking-pin"}
 	IconPassword                         = icon{"password"}
 	IconPasswordFingerprint              = icon{"password-fingerprint"}
 	IconPasswordMobilePhone              = icon{"password-mobile-phone"}
@@ -4810,6 +4822,7 @@ var (
 	IconPhoneOff                         = icon{"phone-off"}
 	IconPhoneOutgoing                    = icon{"phone-outgoing"}
 	IconPhonePause                       = icon{"phone-pause"}
+	IconPhonePin                         = icon{"phone-pin"}
 	IconPhonePlus                        = icon{"phone-plus"}
 	IconPhoneRinging                     = icon{"phone-ringing"}
 	IconPhoneSpark                       = icon{"phone-spark"}
@@ -4899,6 +4912,7 @@ var (
 	IconPlaneFilled                      = icon{"plane-filled"}
 	IconPlaneInflight                    = icon{"plane-inflight"}
 	IconPlaneOff                         = icon{"plane-off"}
+	IconPlanePin                         = icon{"plane-pin"}
 	IconPlaneTilt                        = icon{"plane-tilt"}
 	IconPlaneTiltFilled                  = icon{"plane-tilt-filled"}
 	IconPlanet                           = icon{"planet"}
@@ -5291,6 +5305,7 @@ var (
 	IconSchoolBell                       = icon{"school-bell"}
 	IconSchoolFilled                     = icon{"school-filled"}
 	IconSchoolOff                        = icon{"school-off"}
+	IconSchoolPin                        = icon{"school-pin"}
 	IconScissors                         = icon{"scissors"}
 	IconScissorsOff                      = icon{"scissors-off"}
 	IconScooter                          = icon{"scooter"}
@@ -6037,6 +6052,7 @@ var (
 	IconTemplateOff                      = icon{"template-off"}
 	IconTent                             = icon{"tent"}
 	IconTentOff                          = icon{"tent-off"}
+	IconTentPin                          = icon{"tent-pin"}
 	IconTerminal                         = icon{"terminal"}
 	IconTerminal2                        = icon{"terminal-2"}
 	IconTestPipe                         = icon{"test-pipe"}
@@ -6124,6 +6140,7 @@ var (
 	IconToolsKitchen2                    = icon{"tools-kitchen-2"}
 	IconToolsKitchen2Filled              = icon{"tools-kitchen-2-filled"}
 	IconToolsKitchen2Off                 = icon{"tools-kitchen-2-off"}
+	IconToolsKitchen2Pin                 = icon{"tools-kitchen-2-pin"}
 	IconToolsKitchen3                    = icon{"tools-kitchen-3"}
 	IconToolsKitchenOff                  = icon{"tools-kitchen-off"}
 	IconToolsOff                         = icon{"tools-off"}
@@ -6220,6 +6237,7 @@ var (
 	IconTrowel                           = icon{"trowel"}
 	IconTruck                            = icon{"truck"}
 	IconTruckDelivery                    = icon{"truck-delivery"}
+	IconTruckDeliveryPin                 = icon{"truck-delivery-pin"}
 	IconTruckFilled                      = icon{"truck-filled"}
 	IconTruckLoading                     = icon{"truck-loading"}
 	IconTruckOff                         = icon{"truck-off"}

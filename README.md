@@ -2,7 +2,7 @@
 
 [![CI](https://github.com/timzifer/fyne_tabler/actions/workflows/ci.yml/badge.svg)](https://github.com/timzifer/fyne_tabler/actions/workflows/ci.yml)
 
-[Tabler Icons](https://tabler.io/icons) (v3.52.0) for [Fyne](https://fyne.io) apps, embedded into your
+[Tabler Icons](https://tabler.io/icons) (v3.53.0) for [Fyne](https://fyne.io) apps, embedded into your
 binary and colorable at runtime. Requires Go 1.21+ and Fyne 2.3+.
 
 ## Install
