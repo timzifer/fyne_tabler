@@ -1,5 +1,35 @@
 # Changelog
 
+## Tabler Icons 3.53.0
+
+Updated from [3.52.0 to 3.53.0](https://github.com/tabler/tabler-icons/compare/v3.52.0...v3.53.0), 6563 icons in total.
+
+### Added (18)
+
+<details>
+<summary>Show icons</summary>
+
+- `bed-pin` (`IconBedPin`)
+- `bike-pin` (`IconBikePin`)
+- `briefcase-pin` (`IconBriefcasePin`)
+- `building-hospital-pin` (`IconBuildingHospitalPin`)
+- `building-store-pin` (`IconBuildingStorePin`)
+- `bus-pin` (`IconBusPin`)
+- `car-pin` (`IconCarPin`)
+- `coffee-pin` (`IconCoffeePin`)
+- `gas-station-pin` (`IconGasStationPin`)
+- `home-pin` (`IconHomePin`)
+- `package-pin` (`IconPackagePin`)
+- `parking-pin` (`IconParkingPin`)
+- `phone-pin` (`IconPhonePin`)
+- `plane-pin` (`IconPlanePin`)
+- `school-pin` (`IconSchoolPin`)
+- `tent-pin` (`IconTentPin`)
+- `tools-kitchen-2-pin` (`IconToolsKitchen2Pin`)
+- `truck-delivery-pin` (`IconTruckDeliveryPin`)
+
+</details>
+
 ## Tabler Icons 3.52.0
 
 Updated from [2.30.0 to 3.52.0](https://github.com/tabler/tabler-icons/compare/v2.30.0...v3.52.0), 6545 icons in total.

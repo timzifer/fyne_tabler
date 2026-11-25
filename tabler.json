@@ -1,8 +1,9 @@
 {
-  "version": "3.52.0",
+  "version": "3.53.0",
   "releases": [
     "2.30.0",
-    "3.52.0"
+    "3.52.0",
+    "3.53.0"
   ],
   "renames": {
     "arrow-top-circle": "arrow-up-circle",
